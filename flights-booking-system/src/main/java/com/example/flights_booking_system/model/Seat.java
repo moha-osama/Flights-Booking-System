@@ -11,15 +11,15 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Seats {
+public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@ManyToOne
-    //@JoinColumn(name = "flight_id", nullable = false)
-    //private Flights flight;
+    @ManyToOne
+    @JoinColumn(name = "flight_id", nullable = false)
+    private Flight flightId;
 
     private String seat_code;
 
