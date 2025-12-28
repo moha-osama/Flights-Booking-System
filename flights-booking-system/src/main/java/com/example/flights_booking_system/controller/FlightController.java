@@ -1,4 +1,4 @@
-package com.example.flights_booking_system.controller;
+package com.example.flights_booking_system.Controller;
 
 
 import com.example.flights_booking_system.dto.FlightDTO;
@@ -15,6 +15,12 @@ import java.util.List;
 public class FlightController {
 
     private final FlightService flightService;
+
+    @GetMapping("/all")
+    public ResponseEntity<List<FlightDTO>> getAllFlights() {
+        List<FlightDTO> flights = flightService.getAllFlights();
+        return ResponseEntity.ok(flights);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<List<FlightDTO>> getFlightById(@PathVariable Long id) {

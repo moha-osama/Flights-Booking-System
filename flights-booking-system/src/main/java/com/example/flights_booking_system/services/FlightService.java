@@ -17,6 +17,13 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
+    public List<FlightDTO> getAllFlights() {
+        return flightRepository.findAll()
+                .stream()
+                .map(this::maptoDTO)
+                .toList();
+    }
+
     public List<FlightDTO> getFlightById(Long id) {
         return flightRepository.getFlightById(id)
                 .stream()
