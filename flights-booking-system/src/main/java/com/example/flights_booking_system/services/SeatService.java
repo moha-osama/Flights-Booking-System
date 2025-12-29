@@ -34,7 +34,7 @@ public class SeatService {
                 .toList();
     }
 
-    public List<SeatsDTO> getSeatsByFlightIdAndStatus(Long flightId, SeatsStatus status) {
+    public List<SeatsDTO> getSeatsByFlightIdAndStatus(Flight flightId, SeatsStatus status) {
         return seatRepository.findByFlightIdAndStatus(flightId, status)
                 .stream()
                 .map(this::maptoDTO)
