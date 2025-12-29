@@ -16,13 +16,18 @@ public class FlightController {
 
     private final FlightService flightService;
 
+    @GetMapping("/all")
+    public ResponseEntity<List<FlightDTO>> getAllFlights() {
+        List<FlightDTO> flights = flightService.getAllFlights();
+        return ResponseEntity.ok(flights);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<List<FlightDTO>> getFlightById(@PathVariable Long id) {
         List<FlightDTO> flights = flightService.getFlightById(id);
         return ResponseEntity.ok(flights);
     }
 
-    @GetMapping
+    @GetMapping("/origin")
     public ResponseEntity<List<FlightDTO>> getFlightsByOrigin(
             @RequestParam String origin) {
 
